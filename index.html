@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#00D9B5" />
+    <meta name="description" content="NotesFlow — a modern productivity suite for tasks, notes, and schedule." />
+    <meta property="og:title" content="NotesFlow" />
+    <meta property="og:description" content="One calm workspace for tasks, notes, and your schedule." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/icon-512.png" />
+    <title>NotesFlow</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script>
+      try {
+        var stored = JSON.parse(localStorage.getItem('taskflow:prefs') || 'null');
+        if (stored && stored.theme === 'dark') document.documentElement.classList.add('dark');
+      } catch (error) {
+        /* ignore malformed storage */
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

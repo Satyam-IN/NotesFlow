@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ---------- Color tokens (Google Stitch / Material 3 tonal palette) ---------- */
+  --color-surface: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-variant: #e0e3e5;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #464555;
+  --color-on-background: #191c1e;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+  --color-outline: #777587;
+  --color-outline-variant: #c7c4d8;
+  --color-surface-tint: #00a995;
+
+  --color-primary: #00d9b5;
+  --color-on-primary: #003b3b;
+  --color-primary-ink: #00786b;
+  --color-primary-container: #003b3b;
+  --color-on-primary-container: #d9fff5;
+  --color-primary-fixed: #d9fff5;
+  --color-primary-fixed-dim: #a9f0e3;
+  --color-on-primary-fixed: #003b3b;
+  --color-on-primary-fixed-variant: #00786b;
+  --color-inverse-primary: #00d9b5;
+
+  --color-secondary: #00786b;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #cbf5ea;
+  --color-on-secondary-container: #00584a;
+  --color-secondary-fixed: #cbf5ea;
+  --color-secondary-fixed-dim: #a8e8d8;
+  --color-on-secondary-fixed: #003b3b;
+  --color-on-secondary-fixed-variant: #00786b;
+
+  --color-tertiary: #005338;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #006e4b;
+  --color-on-tertiary-container: #67f4b7;
+  --color-tertiary-fixed: #6ffbbe;
+  --color-tertiary-fixed-dim: #4edea3;
+  --color-on-tertiary-fixed: #002113;
+  --color-on-tertiary-fixed-variant: #005236;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* ---------- Typography ---------- */
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body-md: "Inter Variable", "Inter", sans-serif;
+  --font-body-sm: "Inter Variable", "Inter", sans-serif;
+  --font-body-lg: "Inter Variable", "Inter", sans-serif;
+  --font-label-md: "Inter Variable", "Inter", sans-serif;
+  --font-label-sm: "Inter Variable", "Inter", sans-serif;
+  --font-headline-xl: "Inter Variable", "Inter", sans-serif;
+  --font-headline-lg: "Inter Variable", "Inter", sans-serif;
+  --font-headline-md: "Inter Variable", "Inter", sans-serif;
+  --font-headline-sm: "Inter Variable", "Inter", sans-serif;
+
+  --text-headline-xl: 36px;
+  --text-headline-xl--line-height: 44px;
+  --text-headline-xl--letter-spacing: -0.025em;
+  --text-headline-xl--font-weight: 700;
+
+  --text-headline-lg: 30px;
+  --text-headline-lg--line-height: 38px;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--letter-spacing: -0.015em;
+  --text-headline-md--font-weight: 600;
+
+  --text-headline-sm: 20px;
+  --text-headline-sm--line-height: 28px;
+  --text-headline-sm--letter-spacing: -0.01em;
+  --text-headline-sm--font-weight: 600;
+
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-body-md--font-weight: 400;
+
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 18px;
+  --text-body-sm--font-weight: 400;
+
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.01em;
+  --text-label-md--font-weight: 500;
+
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 14px;
+  --text-label-sm--letter-spacing: 0.02em;
+  --text-label-sm--font-weight: 500;
+
+  /* ---------- 8px spacing rhythm ---------- */
+  --spacing-space-xs: 4px;
+  --spacing-space-sm: 8px;
+  --spacing-space-md: 16px;
+  --spacing-space-lg: 24px;
+  --spacing-space-xl: 32px;
+  --spacing-gutter: 24px;
+  --spacing-margin: 32px;
+
+  /* ---------- Elevation ---------- */
+  --shadow-header: 0 1px 8px rgba(0, 0, 0, 0.04);
+  --shadow-ambient: 0 4px 20px -2px rgba(100, 116, 139, 0.08);
+  --shadow-ambient-sm: 0 4px 20px -2px rgba(100, 116, 139, 0.06);
+  --shadow-ambient-lg: 0 8px 30px -4px rgba(100, 116, 139, 0.12);
+  --shadow-fab: 0 8px 25px -4px rgba(0, 169, 149, 0.45);
+}
+
+/* Dark theme: derived from the Material 3 inverse tokens (no dark palette was supplied). */
+.dark {
+  --color-surface: #0f1116;
+  --color-surface-dim: #0a0c10;
+  --color-surface-bright: #363a40;
+  --color-surface-container-lowest: #14171d;
+  --color-surface-container-low: #191c23;
+  --color-surface-container: #1e222a;
+  --color-surface-container-high: #242832;
+  --color-surface-container-highest: #2a2f39;
+  --color-surface-variant: #2a2f39;
+  --color-on-surface: #e6e8ee;
+  --color-on-surface-variant: #b9b8c8;
+  --color-on-background: #e6e8ee;
+  --color-inverse-surface: #e6e8ee;
+  --color-inverse-on-surface: #1a1d22;
+  --color-outline: #8d8b9c;
+  --color-outline-variant: #3c3b49;
+  --color-surface-tint: #00a995;
+
+  --color-primary: #00d9b5;
+  --color-on-primary: #003b3b;
+  --color-primary-ink: #00d9b5;
+  --color-primary-container: #00a995;
+  --color-on-primary-container: #00251f;
+  --color-primary-fixed: #102e2a;
+  --color-primary-fixed-dim: #7fe5d2;
+  --color-on-primary-fixed: #d9fff5;
+  --color-on-primary-fixed-variant: #9be8da;
+  --color-inverse-primary: #003b3b;
+
+  --color-secondary: #93d9cb;
+  --color-on-secondary: #003b3b;
+  --color-secondary-container: #173e38;
+  --color-on-secondary-container: #b9efe4;
+  --color-secondary-fixed: #12322d;
+  --color-secondary-fixed-dim: #93d9cb;
+  --color-on-secondary-fixed: #d9fff5;
+  --color-on-secondary-fixed-variant: #93d9cb;
+
+  --color-tertiary: #4edea3;
+  --color-on-tertiary: #002113;
+  --color-tertiary-container: #005236;
+  --color-on-tertiary-container: #9df5cf;
+  --color-tertiary-fixed: #0b3b2a;
+  --color-tertiary-fixed-dim: #4edea3;
+  --color-on-tertiary-fixed: #6ffbbe;
+  --color-on-tertiary-fixed-variant: #4edea3;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #5b1a15;
+  --color-on-error-container: #ffdad6;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Motion for sheets, dialogs and toasts */
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.animate-overlay {
+  animation: overlay-in 0.2s ease-out;
+}
+
+.animate-sheet {
+  animation: sheet-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-toast {
+  animation: toast-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+  .animate-sheet {
+    animation: dialog-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
