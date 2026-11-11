@@ -43,6 +43,8 @@ A modern productivity application designed to help users organize their notes, m
 
 ## ⚙️ Installation and Setup
 
+**Prerequisites:** Node.js 22.12 or newer and npm.
+
 1. Clone the repository:
 
    ```bash
@@ -93,6 +95,14 @@ NotesFlow/
 ├── package.json
 └── vite.config.js
 ```
+
+## 🚀 Deployment
+
+The project is ready to deploy on [Vercel](https://vercel.com). [`vercel.json`](vercel.json) includes an SPA rewrite so client-side routes such as `/tasks` resolve on direct visits and refreshes.
+
+1. Go to [vercel.com/new](https://vercel.com/new) and import the `Satyam-IN/NotesFlow` repository.
+2. Keep the detected **Vite** settings (`npm run build`, output directory `dist`) and Node.js 22.x.
+3. Click **Deploy**. Every push to `main` then redeploys automatically.
 
 ## 🔮 Future Improvements
 
