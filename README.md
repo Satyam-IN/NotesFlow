@@ -110,4 +110,4 @@ GitHub: [@Satyam-IN](https://github.com/Satyam-IN)
 
 ## 📜 License
 
-This project is available for educational and portfolio purposes.
+Released under the [MIT License](LICENSE).
